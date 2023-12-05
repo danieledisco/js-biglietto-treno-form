@@ -47,42 +47,60 @@ Pseudo Code
 
 ***************************************************************************************/
 
-// Action after clicked button
-document.querySelector('.evalPrice').addEventListener('click', function () 
+// Define variable of the problem
+const inputCustomerName = document.getElementById("inputCustomerName");
+const inputCustomerKm   = document.getElementById("inputCustomerKm");
+const inputCustomerAge  = document.getElementById("inputCustomerAge");
+const btnCalc           = document.getElementById("btnCalc");
+const btnCanc           = document.getElementById("btnCanc");
+const outputName        = document.getElementById("outputName");
+const outputTicket      = document.getElementById("outputTicket");
+const outputPrice       = document.getElementById("outputPrice");
+const messageFromRW     = document.getElementById("msg");
+let price;
+document.getElementById('btnCalc').addEventListener('click', function () 
 {
-    const km = Number(document.getElementById("input_km").value);
-    const age = Number(document.getElementById("input_age").value);
+    const nameUser = inputCustomerName.value;
+    const km       = inputCustomerKm.value;
+    const age      = inputCustomerAge.value;
+    let   ticket;
 
     // Verifica in console
     //console.log("nel click km = " + km);
     //console.log("nel click age = " + age);
+    messageFromRW.innerHTML = "";
+    outputName.innerHTML = "Nome e Cognome Cliente";
+    outputTicket.innerHTML = "Standard/Teenager/Senior";
+    outputPrice.innerHTML = "####"; 
 
-    // Verifica km
-    if (km < 5 || km > 5000) 
+    if (km < 5 || km > 5000) // Verifica chilometri
     {
-        alert("Il percorso non può essere più corto di 5km e più lungo di 5000km. Si prega di reinserire il numero di chilometri");
-        return;
-    }
-
-    // Verifica age
-    if (age < 8) 
-    {
-        alert("I bambini con età inferiore ad 8 anni non possono viaggiare da soli. Ci dispiace");
+        messageFromRW.innerHTML = "Il percorso non può essere più corto di 5km e più lungo di 5000km. Si prega di reinserire il numero di chilometri";
         return;
     }
 
     // Calcolo prezzo intero
-    let price = 0.21 * km;
+    price = 0.21 * km;
 
-    // Verifica per applicare lo sconto
-    if (age < 18) 
+    if (age < 8) // Verifica age
+    {
+        messageFromRW.innerHTML = "I bambini con età inferiore ad 8 anni non possono viaggiare da soli. Ci dispiace";
+        return;
+    }
+    else if (age < 18) // Applichiamo sconto teenager 
     {
         // Sconto 20% 
         price *= 0.8;
+        ticket = "Teenager Sconto 20%"
     }
-    else if (age > 65) 
+    else if (age > 65)  // Applichiamo sconto senior
     {
         price *= 0.6;
+        ticket = "Ultra 60anni Sconto 40%"
+    }
+    else
+    {
+        ticket = "Standard"
     }
 
     // Formattiamo il prezzo
@@ -90,9 +108,22 @@ document.querySelector('.evalPrice').addEventListener('click', function ()
 
     // Stampiano il console il prezzo
     console.log("Il prezzo del biglietto per km " + km + " con utente di età " + age + " anni è di " + formattedPrice + "€");
+    outputName.innerHTML = nameUser;
+    outputTicket.innerHTML = ticket;
+    outputPrice.innerHTML = formattedPrice + "€";
+
 }
 );
-
-
+document.getElementById('btnCanc').addEventListener('click', function () 
+{
+    inputCustomerName.value = "";
+    inputCustomerAge.value = "";
+    inputCustomerKm.value = "";
+    outputName.innerHTML = "Nome e Cognome Cliente";
+    outputTicket.innerHTML = "Standard/Teenager/Senior";
+    outputPrice.innerHTML = "####";
+    messageFromRW.innerHTML = "";
+}
+);
 
 

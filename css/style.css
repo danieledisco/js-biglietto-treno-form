@@ -40,12 +40,6 @@ h4
     font-size: 1rem;  
 }
 
-form
-{
-    width: 100%;
-    height: 500px;
-    border: 1px solid red;
-}
 
 .customer
 {
@@ -61,21 +55,17 @@ form
 {
     width: calc( 100%  / 3 );
     text-align: center;
-    border: 1px solid red;
 }
 
 #customerKm
 {
     width: calc( 100% / 3 );
     text-align: center;
-    border: 1px solid red;
-
 }
 
 #customerAge
 {
     width: calc( 100% / 3 );
-    border: 1px solid red;
     text-align: center;
 }
 
@@ -92,7 +82,6 @@ form
 {
     display: flex;
     margin: 2rem;
-    border: 1px solid red;
     justify-content: center;
 }
 
@@ -109,4 +98,48 @@ button
 {
     border: 3px solid green;
     margin-bottom: 2rem;
+}
+
+.ticket
+{
+    width: 85%;
+    margin: auto;
+    background-color: aqua;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    margin-bottom: 4rem;
+}
+
+.outputCustomerName, .outputCustomerTicket, .outputCustomerPrice
+{
+    width: calc( 100% / 3 );
+    text-align: center;
+    color: green;
+}
+
+#outputName, #outputTicket, #outputPrice
+{
+    text-align: center;
+    color: green;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.messageFromRaylway
+{
+    width: 70%;
+    height: 100px;
+    margin: auto;
+    background-color: aqua;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+}
+
+#msg
+{
+    color: red;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
