@@ -48,37 +48,39 @@ Pseudo Code
 ***************************************************************************************/
 
 // Action after clicked button
-document.querySelector('.evalPrice').addEventListener('click',function()
+document.querySelector('.evalPrice').addEventListener('click', function () 
 {
     const km = Number(document.getElementById("input_km").value);
     const age = Number(document.getElementById("input_age").value);
 
     // Verifica in console
-    //console.log("km = " + km);
-    //console.log("age = " + age);
+    //console.log("nel click km = " + km);
+    //console.log("nel click age = " + age);
 
     // Verifica km
-    if ( km < 5 || km > 5000 )
+    if (km < 5 || km > 5000) 
     {
         alert("Il percorso non può essere più corto di 5km e più lungo di 5000km. Si prega di reinserire il numero di chilometri");
+        return;
     }
 
     // Verifica age
-    if ( age < 8 )
+    if (age < 8) 
     {
         alert("I bambini con età inferiore ad 8 anni non possono viaggiare da soli. Ci dispiace");
+        return;
     }
 
     // Calcolo prezzo intero
     let price = 0.21 * km;
 
     // Verifica per applicare lo sconto
-    if ( age < 18 )
+    if (age < 18) 
     {
         // Sconto 20% 
         price *= 0.8;
     }
-    else if ( age > 65 )
+    else if (age > 65) 
     {
         price *= 0.6;
     }
@@ -88,12 +90,9 @@ document.querySelector('.evalPrice').addEventListener('click',function()
 
     // Stampiano il console il prezzo
     console.log("Il prezzo del biglietto per km " + km + " con utente di età " + age + " anni è di " + formattedPrice + "€");
-
-
-
-
-
-
-
 }
 );
+
+
+
+

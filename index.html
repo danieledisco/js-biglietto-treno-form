@@ -5,20 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="shortcut icon" href="./img/d.ico" type="image/x-icon">
 </head>
 <body>
+    <div class="container">
+        <h2>Calcola il prezzo del tuo biglietto</h2>
+        <div class="customer">
+            <div id="customerName">
+                <h4>Nome e cognome</h4>
+                <input type="text"  id="inputCustomerName">
+            </div>
+            
+            <div id="customerKm">
+                <h4>Chilometri da percorrere</h4>
+                <input type="number"  id="inputCustomerKm">
+            </div>
+            <div id="customerAge">
+                <h4>Età</h4>
+                <input type="number"  id="inputCustomerAge">
+            </div>
+  
+        </div>
+        <div class="commands">
+            <button id="btn-calc">
+                Calcola
+            </button>
+            <button id="btn-canc">
+                Annulla
+            </button>
+        </div>
+        <hr class="separator">
+        <div class="ticket">
+            <h2>Il tuo biglietto</h2>
 
-    <label for="input_km">Quanti chilometri deve percorrere?</label>
-    <input type="text" id="input_km">
+        </div>
+        
 
-    <label for="input_age">Qual è la sua età</label>
-    <input type="text" id="input_age">
-
-    <button class="evalPrice">Calcola il prezzo del bigletto</button>
-    
-    
-
-    <script src="./js/sctript.js"></script>
+    </div>
+<script src="./js/sctript.js"></script>
 </body>
 </html>
